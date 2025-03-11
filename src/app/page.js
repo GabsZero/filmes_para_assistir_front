@@ -24,7 +24,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="container mx-auto max-w-xl mt-5">
+    <div className="container mx-auto max-w-3xl mt-5">
       <h1 className="text-2xl font-bold mb-4 text-center">Filmes para assistir</h1>
       <div className="bg-white p-12">
         <div className="space-y-4">
