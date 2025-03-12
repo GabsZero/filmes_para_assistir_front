@@ -31,7 +31,7 @@ export default async function Home() {
           {filmesResponse.data.filmes.map((filme) => (
             <div key={filme.ID} className="flex justify-between p-4 items-center border border-gray-300 rounded-lg shadow-sm">
               <span className={filme.Assistido ? "line-through text-gray-500" : ""}>
-                {filme.Nome}
+                {filme.Nome} - {filme.Tipo}
               </span>
               <div className="flex space-x-2">
                 {
