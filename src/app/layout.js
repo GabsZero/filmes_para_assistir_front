@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
                   <div className="flex space-x-4">
                     <Link href="/" className="rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-gray-700 hover:text-white" aria-current="page">Home</Link>
                     <Link href="/filmes" className="rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-gray-700 hover:text-white" aria-current="page">Novo filme</Link>
-                    <Link href="/filmes" className="rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-gray-700 hover:text-white" aria-current="page">Filmes assistidos</Link>
+                    <Link href="/filmes_assistidos" className="rounded-md px-3 py-2 text-lg font-medium text-white hover:bg-gray-700 hover:text-white" aria-current="page">Filmes assistidos</Link>
                   </div>
                 </div>
               </div>
