@@ -4,7 +4,6 @@ import { revalidatePath } from "next/cache"
 export default async function Home() {
   const data = await fetch('http://localhost:8080/filmes')
   const filmesResponse = await data.json()
-  console.log(filmesResponse)
   
   const marcarFilmeAssistido = async (formData) => {
     'use server'
@@ -29,7 +28,9 @@ export default async function Home() {
       <h1 className="text-2xl font-bold mb-4 text-center">Filmes para assistir</h1>
       <div className="bg-white p-12">
         <div className="space-y-4">
-          {filmesResponse.data.filmes.map((filme) => (
+          {
+            filmesResponse.data.filmes ? 
+            filmesResponse.data.filmes.map((filme) => (
             <div key={filme.ID} className="flex justify-between p-4 items-center border border-gray-300 rounded-lg shadow-sm">
               <span className={filme.Assistido ? "line-through text-gray-500" : ""}>
                 {filme.Nome} - {filme.Tipo}
@@ -63,7 +64,7 @@ export default async function Home() {
                 
               </div>
             </div>
-          ))}
+          )):""}
         </div>
       </div>
     </div>
