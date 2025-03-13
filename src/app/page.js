@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache"
 export default async function Home() {
   const data = await fetch('http://localhost:8080/filmes')
   const filmesResponse = await data.json()
+  console.log(filmesResponse)
   
   const marcarFilmeAssistido = async (formData) => {
     'use server'
