@@ -1,7 +1,6 @@
-import { apagarFilme, marcarAssistido } from "./lib/actions"
+import { apagarFilme, getFilmes, marcarAssistido } from "./lib/actions"
 export default async function Page() {
-  const filmesResponse = await fetch('http://localhost:3333/api/v1/filmes?assistido=false')
-  const filmes = await filmesResponse.json()
+  const filmes = await getFilmes(false);
 
 
   return (
@@ -36,3 +35,4 @@ export default async function Page() {
     </div>
   );
 }
+

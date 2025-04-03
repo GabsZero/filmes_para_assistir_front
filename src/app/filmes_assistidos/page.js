@@ -1,8 +1,7 @@
 import { DateTime } from 'luxon'
-import { apagarFilme } from '../lib/actions';
+import { apagarFilme, getFilmes } from '../lib/actions';
 export default async function Page() {
-  const filmesReponse = await fetch('http://localhost:3333/api/v1/filmes?assistido=true')
-  const filmes = await filmesReponse.json()
+  const filmes = await getFilmes(true);
 
 
   return (
@@ -32,3 +31,4 @@ export default async function Page() {
     </div>
   );
 }
+

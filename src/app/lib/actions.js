@@ -32,3 +32,14 @@ export async function apagarFilme(formData) {
   revalidatePath('/')
 
 }
+
+export async function getFilmes(assistido) {
+  try {
+    const filmesReponse = await fetch(`http://localhost:3333/api/v1/filmes?assistido=${assistido}`);
+    const filmes = await filmesReponse.json();
+    return filmes;
+  } catch (error) {
+    console.error('Erro ao buscar filmes:', error);
+    return { data: [] };
+  }
+}
