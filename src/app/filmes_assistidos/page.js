@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon'
+import { apagarFilme } from '../lib/actions';
 export default async function Page() {
   const filmesReponse = await fetch('http://localhost:3333/api/v1/filmes?assistido=true')
   const filmes = await filmesReponse.json()
@@ -16,11 +17,14 @@ export default async function Page() {
               <p className='text-sm text-gray-500 text-center mb-5'>Assistido em: {DateTime.fromISO(filme.updated_at).toLocaleString(DateTime.DATETIME_MED)}</p>
             </div>
             <div className="flex gap-2">
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              >
-                Apagar
-              </button>
+              <form action={apagarFilme}>
+                <input type="hidden" name="id" value={filme.id} />
+                <button
+                  className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                >
+                  Apagar
+                </button>
+              </form>
             </div>
           </div>
         ))}
