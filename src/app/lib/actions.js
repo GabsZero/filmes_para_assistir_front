@@ -13,7 +13,6 @@ export async function marcarAssistido(formData) {
   })
 
   if (!response.ok) {
-    console.log(response)
     throw new Error('Falha ao marcar filme como assistido')
   }
   revalidatePath('/')
@@ -27,7 +26,6 @@ export async function apagarFilme(formData) {
   })
 
   if (!response.ok) {
-    console.log(response)
     throw new Error('Falha ao apagar filme')
   }
 
