@@ -19,4 +19,18 @@ export async function marcarAssistido(formData) {
   revalidatePath('/')
 }
 
-export async function deletePost(formData) { }
+export async function apagarFilme(formData) {
+  const { id } = Object.fromEntries(formData)
+
+  const response = await fetch(`http://localhost:3333/api/v1/filmes/${id}`, {
+    method: 'DELETE',
+  })
+
+  if (!response.ok) {
+    console.log(response)
+    throw new Error('Falha ao apagar filme')
+  }
+
+  revalidatePath('/')
+
+}

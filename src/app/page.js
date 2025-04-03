@@ -1,4 +1,4 @@
-import { marcarAssistido } from "./lib/actions"
+import { apagarFilme, marcarAssistido } from "./lib/actions"
 export default async function Page() {
   const filmesResponse = await fetch('http://localhost:3333/api/v1/filmes?assistido=false')
   const filmes = await filmesResponse.json()
@@ -21,11 +21,14 @@ export default async function Page() {
                   Marcar como assistido
                 </button>
               </form>
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              >
-                Apagar
-              </button>
+              <form action={apagarFilme}>
+                <input type="hidden" name="id" value={filme.id} />
+                <button
+                  className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                >
+                  Apagar
+                </button>
+              </form>
             </div>
           </div>
         ))}
