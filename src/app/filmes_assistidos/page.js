@@ -2,6 +2,7 @@ import { DateTime } from 'luxon'
 import { apagarFilme, getFilmes } from '../lib/actions';
 export default async function Page() {
   const filmes = await getFilmes(true);
+  console.log(filmes)
 
 
   return (
