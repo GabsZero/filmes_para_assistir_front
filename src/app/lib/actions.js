@@ -11,7 +11,8 @@ export async function marcarAssistido(formData) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+    cache: 'no-store'
   })
 
   if (!response.ok) {
@@ -25,6 +26,7 @@ export async function apagarFilme(formData) {
 
   const response = await fetch(`${baseUrl}/filmes/${id}`, {
     method: 'DELETE',
+    cache: 'no-store'
   })
 
   if (!response.ok) {

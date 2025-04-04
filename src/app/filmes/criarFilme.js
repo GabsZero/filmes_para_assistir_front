@@ -7,6 +7,7 @@ export default async function criarFilme(formData) {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
+      cache: 'no-store'
     },
     body: JSON.stringify({
       nome: formData.get('nome'),

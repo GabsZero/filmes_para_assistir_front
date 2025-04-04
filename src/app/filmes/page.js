@@ -38,7 +38,7 @@ export default async function Page() {
 async function getGeneros() {
     const baseUrl = process.env.API_FILMES
     try {
-        const generos = await fetch(`${baseUrl}/generos`)
+        const generos = await fetch(`${baseUrl}/generos`, { cache: 'no-store' })
         const generosData = await generos.json()
         return generosData
     } catch (error) {
