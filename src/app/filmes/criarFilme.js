@@ -1,5 +1,7 @@
 'use server'
 
+import { redirect } from 'next/navigation'
+
 const baseUrl = process.env.API_FILMES
 
 export default async function criarFilme(formData) {
@@ -15,4 +17,6 @@ export default async function criarFilme(formData) {
     }),
   });
   const data = await response.json();
+
+  redirect('/')
 }
