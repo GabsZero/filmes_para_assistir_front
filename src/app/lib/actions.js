@@ -2,10 +2,12 @@
 
 import { revalidatePath } from "next/cache"
 
+const baseUrl = process.env.API_FILMES
+
 export async function marcarAssistido(formData) {
   const { id } = Object.fromEntries(formData)
 
-  const response = await fetch(`http://localhost:3333/api/v1/filmes/assistido/${id}`, {
+  const response = await fetch(`${baseUrl}/filmes/assistido/${id}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -21,7 +23,7 @@ export async function marcarAssistido(formData) {
 export async function apagarFilme(formData) {
   const { id } = Object.fromEntries(formData)
 
-  const response = await fetch(`http://localhost:3333/api/v1/filmes/${id}`, {
+  const response = await fetch(`${baseUrl}/filmes/${id}`, {
     method: 'DELETE',
   })
 
@@ -35,7 +37,7 @@ export async function apagarFilme(formData) {
 
 export async function getFilmes(assistido) {
   try {
-    const filmesReponse = await fetch(`http://localhost:3333/api/v1/filmes?assistido=${assistido}`);
+    const filmesReponse = await fetch(`${baseUrl}/filmes?assistido=${assistido}`);
     const filmes = await filmesReponse.json();
     return filmes;
   } catch (error) {

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "assistir_filmes_front": "file:",
+    "dotenv": "^16.4.7",
     "luxon": "^3.6.1",
     "next": "^15.2.4",
     "react": "^19.0.0",

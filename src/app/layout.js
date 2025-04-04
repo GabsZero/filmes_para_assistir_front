@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
+require('dotenv').config()
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
