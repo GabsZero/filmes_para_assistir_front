@@ -1,7 +1,9 @@
 'use server'
 
+const baseUrl = process.env.API_FILMES
+
 export default async function criarFilme(formData) {
-  const response = await fetch(`http://localhost:3333/api/v1/filmes/`, {
+  const response = await fetch(`${baseUrl}/filmes/`, {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
