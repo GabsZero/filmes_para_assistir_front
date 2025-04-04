@@ -36,8 +36,9 @@ export default async function Page() {
 }
 
 async function getGeneros() {
+    const baseUrl = process.env.API_FILMES
     try {
-        const generos = await fetch('http://localhost:3333/api/v1/generos')
+        const generos = await fetch(`${baseUrl}/generos`)
         const generosData = await generos.json()
         return generosData
     } catch (error) {
