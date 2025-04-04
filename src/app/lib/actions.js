@@ -37,7 +37,7 @@ export async function apagarFilme(formData) {
 
 export async function getFilmes(assistido) {
   try {
-    const filmesReponse = await fetch(`${baseUrl}/filmes?assistido=${assistido}`);
+    const filmesReponse = await fetch(`${baseUrl}/filmes?assistido=${assistido}`, { cache: 'no-store' });
     const filmes = await filmesReponse.json();
     return filmes;
   } catch (error) {
