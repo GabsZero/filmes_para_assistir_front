@@ -2,6 +2,8 @@ import { apagarFilme, getFilmes, marcarAssistido } from "./lib/actions"
 export default async function Page() {
   const filmes = await getFilmes(false);
 
+  console.log(filmes)
+
 
   return (
     <div className="container mx-auto p-4">
