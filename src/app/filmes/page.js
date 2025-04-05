@@ -1,15 +1,21 @@
 
 import Form from 'next/form'
 import criarFilme from './criarFilme'
+import { cookies } from 'next/headers'
 
 export default async function Page() {
 
     const generosData = await getGeneros()
+    const cookieStore = await cookies()
+    const error = cookieStore.get('error')
+    const success = cookieStore.get('success')
 
     return (
         <div className="container mx-auto max-w-3xl mt-5">
             <h1 className="text-2xl font-bold mb-4 text-center">Criar um novo filme para assistir</h1>
             <div className="bg-white p-12">
+                {error && <div className="bg-red-500 text-white p-4 rounded-lg mb-4">{error.value}</div>}
+                {success && <div className="bg-green-500 text-white p-4 rounded-lg mb-4">{success.value}</div>}
                 <div className="space-y-4">
                     <Form action={criarFilme} className="max-w-sm mx-auto">
                         <div className="mb-5">

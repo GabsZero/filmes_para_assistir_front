@@ -2,9 +2,6 @@ import { apagarFilme, getFilmes, marcarAssistido } from "./lib/actions"
 export default async function Page() {
   const filmes = await getFilmes(false);
 
-  console.log(filmes)
-
-
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-6">Lista de Filmes</h1>
