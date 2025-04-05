@@ -30,7 +30,7 @@ export default async function criarFilme(formData) {
 
   const data = await response.json();
 
-  cookieStore.set('success', data.message, {
+  cookieStore.set('success', `O Filme ${data.data.nome} foi criado com sucesso`, {
     maxAge: 1
   })
 
